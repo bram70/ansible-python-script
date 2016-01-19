@@ -1,0 +1,4 @@
+- only_tags:
+  - bootstrap
+  remote_user: 'root'
+  remote_pass: ''
