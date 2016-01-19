@@ -1,0 +1,21 @@
+---
+- name: Enable default repos
+  apt_repository: repo='deb http://ftp.debian.org/debian/ jessie main' state=present
+  tags:
+    - bootstrap
+
+- name: Update packges
+  apt: update_cache=yes
+  tags:
+    - bootstrap
+
+- name: Dist upgrade packges
+  apt: upgrade=dist
+  tags:
+    - bootstrap
+
+- name: Set hostname to host-specific variable
+  hostname: name={{ hostname }}
+  when: hostname is defined
+  tags:
+    - bootstrap
